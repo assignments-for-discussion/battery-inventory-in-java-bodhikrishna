@@ -6,7 +6,7 @@ public class Main {
     public int exchange = 0;
     public int failed = 0;
   };
-  final double RATED_CAPACITY=120.0; //rated capacity defined as constant =120 Ah.
+  private static final int RATED_CAPACITY=120; //rated capacity defined as constant =120 Ah.
   static CountsBySoH countBatteriesByHealth(int[] presentCapacities) {
     CountsBySoH counts = new CountsBySoH();
     if(presentCapacities.length == 0)
