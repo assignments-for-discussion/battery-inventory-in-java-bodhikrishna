@@ -54,7 +54,7 @@ public class Main {
     assert(counts.failed==2); //62 and 63 is failed
     System.out.println("Boundary testcases passed");
 
-    int[] empty={} //handling case where no battery provided
+    int[] empty={}; //handling case where no battery provided
     counts=countBatteriesByHealth(empty);
     assert(counts.healthy==0);
     assert(counts.exchange==0);
