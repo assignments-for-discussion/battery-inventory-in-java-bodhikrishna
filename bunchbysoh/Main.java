@@ -6,14 +6,13 @@ public class Main {
     public int exchange = 0;
     public int failed = 0;
   };
-
+  final double RATED_CAPACITY=120.0; //rated capacity defined as constant =120 Ah.
   static CountsBySoH countBatteriesByHealth(int[] presentCapacities) {
     CountsBySoH counts = new CountsBySoH();
     if(presentCapacities.length == 0)
     {
       return counts; //if no battery is provided, then simply return the count.
     }
-    final double RATED_CAPACITY=120.0; //rated capacity defined as constant =120 Ah.
     //Looping through each of the battery's present capacity and further classifying based of SoH.
     for(int capacity: presentCapacities){
       double SOH=(100.0*capacity)/RATED_CAPACITY;
@@ -61,6 +60,7 @@ public class Main {
     assert(counts.exchange==0);
     assert(counts.failed==0);
     System.out.println("Empty array testcases passed");
+    
     System.out.println("Done counting :)\n");
 
 
