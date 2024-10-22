@@ -34,11 +34,11 @@ public class Main {
     assert(counts.failed == 1);
 
     //testing for boundary conditions
-    int[] boundaryCap={62,63,83,130};
+    int[] boundaryCap={62,63,83,100};
     counts=countBatteriesByHealth(boundaryCap);
 
     //expected values for these edge cases are listed below
-    assert(counts.healthy==1); //130 is healthy
+    assert(counts.healthy==1); //100 is healthy
     assert(counts.exchange==2); //63 and 83 are in exchange
     assert(counts.failed==1); //62 is failed
     
