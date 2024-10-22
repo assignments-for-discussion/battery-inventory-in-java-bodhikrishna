@@ -9,10 +9,9 @@ public class Main {
 
   static CountsBySoH countBatteriesByHealth(int[] presentCapacities) {
     CountsBySoH counts = new CountsBySoH();
-    int ratedCap=120; //all the batteries are having a rated capacity of 120 Ah.
     //Looping through each of the battery's present capacity and further classifying based of SoH.
     for(int capacity: presentCapacities){
-      double SOH=100.0*capacity/ratedCap;
+      double SOH=100.0*capacity/120.0; //assumption that rated capacity=120Ah
       if(SOH>83){
         counts.healthy++;
       }else if(SOH>=63){
