@@ -9,16 +9,20 @@ public class Main {
 
   static CountsBySoH countBatteriesByHealth(int[] presentCapacities) {
     CountsBySoH counts = new CountsBySoH();
+    if(presentCapacities.length == 0)
+    {
+      return counts; //if no battery is provided, then simply return the count.
+    }
     final double RATED_CAPACITY=120.0; //rated capacity defined as constant =120 Ah.
     //Looping through each of the battery's present capacity and further classifying based of SoH.
     for(int capacity: presentCapacities){
       double SOH=(100.0*capacity)/RATED_CAPACITY;
-      if(SOH>83){
+      if(SOH>83){ //SoH greater than 83% upto 100%: healthy category
         counts.healthy++;
-      }else if(SOH>=63){
+      }else if(SOH>=63){ //Soh between range of 63% to 83%:exchange category
         counts.exchange++;
       }
-      else{
+      else{ //Soh strictly below 63%: failed category
         counts.failed++;
       }
       
@@ -51,7 +55,7 @@ public class Main {
     assert(counts.failed==2); //62 and 63 is failed
     System.out.println("Boundary testcases passed");
 
-    int[] empty={} //handling case where array is empty
+    int[] empty={} //handling case where no battery provided
     counts=countBatteriesByHealth(empty);
     assert(counts.healthy==0);
     assert(counts.exchange==0);
